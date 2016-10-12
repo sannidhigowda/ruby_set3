@@ -1,71 +1,89 @@
-# The user wants to print his address.
-# An address consist of three part. streetAddress + cityName + countryName.
-# The user now wants to print his completeAddress.
+
+# The user wants to call his friend who is in New York (USA).
+# The user has his friends New York landline number.
+# To make a call the user has to add the country code and the city code to the landline number. 
+# In the user's case the valid number will be the country code + city code + landline number.
+# Help the user get proper country code, city code and final valid phone number 
 
 
 # fix the below code such that.
 
-# 1. When the user checks for countryName, he should get the country name.
-# 2. When the user checks for cityName, he should get the city name - 'Mysore'.
-# 3. When the user checks for streetAddress, he should get the streetAddress as '#96, Railway Layout, Vijaynagar'. 
-# 3. When the user checks for completeAddress, he should get the final Address along with the city name and country name.
+# 1. When the user checks for countryCode, he should get the country code as 00.
+# 2. When the user checks for cityCode, he should get the city code as 212.
+# 3. When the user checks for phoneNumber, he should get the landline number as 2414211. 
+# 3. When the user checks for dialNumber, he should get the final number along with all codes. 002122414211
 
 
 # ------Valid output------- 
 
-# countryName -> India
-# cityName -> Mysore
-# streetAddress -> #96, Railway Layout, Vijaynagar
-# completeAddress -> #96, Railway Layout, Vijaynagar, Mysore, India
+# countryCode -> 00
+# cityCode -> 212
+# phoneNumber -> 2414211
+# dialNumber -> 002122414211
 
 
 # -----Invalid output------
 
-# completeAddress -> #96, Railway Layout, Vijaynagar
-# 									Mysore
-# 									India
+# dialNumber -> 00 212 2414211
+
+
+# dialNumber -> 00
+# 							212
+# 							2414211
 
 
 class Country
 	def initialize
-		puts "This is the Country."
+		puts "This is the Country code."
 	end
 
-	def countryName 
-	 # give the country name.
+	def countryCode
+	print 00 
+	 # the country code is 00
 	end
 end
 
-class City
+class City < Country
 	def initialize
-		puts "This is the City"
+		puts "This is the City code."
 	end
-
-	# define cityName  --> give the city name
+     def cityCode
+     	print 212
+     end
+	# define cityCode  --> city code is 212
 end
 
-
-class Address < Country
-	def initialize
-		puts "This is my address."
-	end
-
-	# define completeAddress --> complete address. 
-
-end
 
 class Number < City
 	def initialize
-		puts "This is my address."
+		puts "This is the landline number."
+	end
+	def phoneNumber
+		print 2414211
+		puts
 	end
 
-	# define streetAddress --> '#96, Railway Layout, Vijaynagar'
+	# define phoneNumber --> phone number is 2414211
 
-	def completeAddress
-		puts streetAddress cityName countryName 
+end
+
+class Numberof < Number
+	def initialize
+		puts "This is the landline number."
+	end
+
+	# define phoneNumber --> phone number is 2414211
+
+	def dialNumber
+		 
 	end
 end
 
+ob1=Numberof.new
+ob1.countryCode
+ob1.cityCode
+
+ob1.phoneNumber
 
 
-# instantiate a object and check for all address.
+# instantiate a object and check for all code and final number
